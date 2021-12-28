@@ -11,8 +11,11 @@ function Homepage() {
         },
     
         validationSchema: Yup.object({
-            Email: Yup.string().email('Invalid email adress').required('Required'),
-            Password: Yup.string().min(7, 'Must be more than 7 characters').max(20, 'Must be less than 20 characters').required('Required'),
+            email: Yup.string().email('Invalid email adress').required('Required'),
+            password: Yup.string()
+                .min(7, 'Must be more than 7 characters')
+                .max(20, 'Must be less than 20 characters')
+                .required('Required'),
         }),
     
         onSubmit: (data) => {
@@ -58,6 +61,9 @@ function Homepage() {
                     </button>
                 </Form>
             </Formik>
+            <div className="register">
+                Register Here
+            </div>
         </div>
     );
 }

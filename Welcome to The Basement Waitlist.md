@@ -3,6 +3,8 @@ Here are a few tips to get you started:
 
 * Download and install Visual Studio Code
 
+* Download and install Node.js
+
 * Create a new folder for our project called **"React_Projects"**
 
 * [Install git to clone our repository ](https://git-scm.com/)  **See bottom page**

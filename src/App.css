@@ -1,0 +1,176 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 50px;
+  height: 52px;
+  margin: 0 auto;
+}
+
+.loginPage {
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+  height: auto;
+  padding: 50px;
+  border: 5px solid darkgray;
+  border-radius: 5px;
+}
+
+.formContainer #inputCreateLogin {
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+.formContainer button {
+  margin-top: 15px;
+  height: 40px;
+  border: none;
+  background-color: lightgrey;
+  border-radius: 5px;
+  color: black;
+}
+
+.formContainer button:hover {
+  cursor: pointer;
+  background-color: grey;
+}
+
+span {
+  color: red;
+}
+
+.Sidebar {
+  height: 100%;
+  width: 200px;
+  background-color: white;
+  border-right: solid lightgrey;
+  float: left;
+}
+
+.Topbar {
+  overflow: hidden;
+  border-bottom: solid lightgrey;
+}
+
+.Topbar .Search {
+  padding-right: 200px;
+  float: right;
+}
+
+.PageLayout {
+  overflow: hidden;
+}
+
+.Welcome {
+  height: 15%;
+  width: 100%;
+  padding: 0;
+}
+
+.Welcome .head {
+  display: block;
+  height: auto;
+  width: 100%;
+  margin: 0%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.Welcome .head:hover {
+  cursor: pointer;
+}
+
+.container .head #logo {
+  width: auto;
+  height: 100px;
+  border-radius: contain;
+  display: block;
+}
+
+.head #name {
+  flex: 50%;
+  font-size: medium;
+}
+
+
+.SidebarList {
+  height: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.SidebarList .row {
+  width: 100%;
+  height: 75px;
+  list-style-type: none;
+  margin: 0%;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.SidebarList .row:hover {
+  cursor: pointer;
+  background-color: rgb(235, 235, 235);
+}
+.SidebarList #active {
+  background-color: lightgrey;
+}
+.row #icon {
+  flex: 40%;
+  display: grid;
+  place-items: center;
+}
+
+.row #title {
+  flex: 60%;
+}
+
+.Profile {
+  height: auto;
+  width: 100%;
+  padding: 0;
+}
+
+.Profile .foot {
+  display: block;
+  padding-top: 300px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.Profile .foot:hover {
+  cursor: pointer;
+}

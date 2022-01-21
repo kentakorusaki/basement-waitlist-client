@@ -21,6 +21,7 @@ function Homepage() {
         onSubmit: (data) => {
             console.log(data);
         },
+
     });
 
     return (
@@ -56,7 +57,7 @@ function Homepage() {
                     {formik.touched.password && formik.errors.password ? (
                         <div>{formik.errors.password}</div>
                     ) : null}
-                    <button type="submit">
+                    <button type="submit" disabled={!(formik.dirty && formik.isValid)}>
                         Submit
                     </button>
                 </Form>

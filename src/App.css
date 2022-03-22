@@ -19,9 +19,20 @@ body {
   width: 100vw;
   height: 70vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Times New Roman', Times, serif;
+}
+
+.loginPage .register {
+  margin-top: 50px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+}
+
+.loginPage .register:hover {
+  color: blue;
 }
 
 .formContainer {
@@ -189,3 +200,4 @@ span {
 .Profile .foot:hover {
   cursor: pointer;
 }
+

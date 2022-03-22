@@ -85,6 +85,21 @@ span {
   overflow: hidden;
 }
 
+.PageLayout .pacman {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 50%;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+}
+
+.PageLayout .pacman:hover {
+  opacity: 100%;
+}
+
 .Welcome {
   height: 15%;
   width: 100%;
@@ -164,7 +179,7 @@ span {
 
 .Profile .foot {
   display: block;
-  padding-top: 300px;
+  padding-top: 120%;
   align-items: center;
   justify-content: center;
   text-align: center;

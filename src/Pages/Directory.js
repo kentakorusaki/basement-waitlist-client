@@ -8,7 +8,14 @@ function Directory() {
             <Sidebar />
             <Topbar />
             <div className="PageLayout">
-                logging...
+                <div className="postBar">
+                    <ul className="post">
+                        <li className="id"></li>
+                        <li className="name">NAME</li>
+                        <li className="type">TYPE</li>
+                        <li className="desc">DESCRIPTION</li>
+                    </ul>
+                </div>
             </div>
         </div>
     )

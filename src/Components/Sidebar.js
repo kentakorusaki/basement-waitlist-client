@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from "axios";
 import "../App.css";
 import {SidebarData} from './SidebarData';
 import {SidebarWelcome} from './SidebarWelcome';
@@ -15,7 +16,7 @@ function Sidebar() {
                             className="head"
                             id=""
                             onClick={()=> {
-                                window.location.pathname = "/"
+                                window.location.pathname = val.link
                             }}
                         >
                             <div class="container" id="logo">{val.logo}</div>  <div id="name">{val.name}</div>

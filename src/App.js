@@ -6,18 +6,22 @@ import Serving from "./Pages/Serving";
 import Log from "./Pages/Directory";
 import Profile from "./Pages/Profile";
 import ErrorPage from "./Pages/ErrorPage";
+import Register from "./Pages/Register";
+
 
 //"/profile/:userID"
 function App() {
+
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Waitlist />} />
+          <Route path="/" element={<Homepage />} />
           <Route path="/waitlist" element={<Waitlist />} />
           <Route path="/serving" element={<Serving />} />
           <Route path="/directory" element={<Log />} />
-          <Route path="/profile" element={<Homepage />}/>
+          <Route path="/profile" element={<Profile />}/>
+          <Route path="/register" element={<Register />}/>
           <Route path="*" element={<ErrorPage/>}/>
         </Routes>
       </Router>

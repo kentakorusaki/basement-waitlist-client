@@ -1,7 +1,7 @@
 .App {
   width: 100vw;
   height: 100vh;
-  
+  overflow-x: hidden;
 }
 
 body {
@@ -25,31 +25,65 @@ body {
   font-family: 'Times New Roman', Times, serif;
 }
 
+.loginPage .logo {
+  padding-top: 5%;
+  padding-bottom: 10px;
+}
+
 .loginPage .register {
-  margin-top: 50px;
+  margin-top: 20px;
   font-family: 'Times New Roman', Times, serif;
   font-size: 20px;
 }
 
-.loginPage .register:hover {
-  color: blue;
+.loginPage .register .link:hover {
+  color: dodgerblue;
+  cursor: pointer;
 }
 
-.formContainer {
+.registerPage {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  font-family: 'Times New Roman', Times, serif;
+  background-image: url('./Components/pictures/link-samus.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+}
+
+.registerPage .register {
+  margin-top: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+}
+
+.registerPage .register .link:hover {
+  color: dodgerblue;
+  cursor: pointer;
+}
+
+
+.formContainer {
+  display: inline-flex;
   flex-direction: column;
   justify-content: center;
   width: 500px;
   height: auto;
   padding: 50px;
+  margin: 0 auto;
   border: 5px solid darkgray;
   border-radius: 5px;
+  background-color: white;
 }
 
 .formContainer #inputCreateLogin {
   height: 40px;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border: 2px solid grey;
   border-radius: 5px;
   padding-left: 10px;
@@ -60,14 +94,15 @@ body {
   margin-top: 15px;
   height: 40px;
   border: none;
-  background-color: lightgrey;
+  background-color: deepskyblue;
   border-radius: 5px;
-  color: black;
+  color: white;
+  font-size: 120%;
 }
 
 .formContainer button:hover {
   cursor: pointer;
-  background-color: grey;
+  background-color: dodgerblue;
 }
 
 span {
@@ -80,6 +115,7 @@ span {
   background-color: white;
   border-right: solid lightgrey;
   float: left;
+  position:fixed;
 }
 
 .Topbar {
@@ -94,21 +130,131 @@ span {
 
 .PageLayout {
   overflow: hidden;
+  margin-left: 200px;
+  bottom: 0;
+}
+
+.PageLayout .postBar .post {
+  height: 40px;
+  width: 90%;
+  margin: 10px;
+  background-color: lightskyblue;
+  border-radius: 10px;
+}
+
+.PageLayout .postBar .post > li{
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: large;
+}
+
+.PageLayout .postStudent .post {
+  height: 80px;
+  width: 90%;
+  margin: 10px;
+  border-color: lightskyblue;
+  border-style: double;
+  border-radius: 10px;
+}
+
+.PageLayout .post > li{
+  display: inline-block;
+  text-align: left;
+  margin-top: 30px;
+  font-size: large;
+  position: relative;
+}
+.PageLayout .postBar .post .id{
+  width: 0vw;
+}
+.PageLayout .postBar .post .name{
+  width: 15vw;
+}
+.PageLayout .postBar .post .type{
+  width: 12vw;
+}
+.PageLayout .postBar .post .desc{
+  width: 15vw;
+}
+.PageLayout .postBar .post .time{
+  width: 15vw;
+}
+
+.PageLayout .postStudent .post .id{
+  width: 5vw;
+  max-inline-size: 5vw;
+}
+.PageLayout .postStudent .post .name{
+  width: 15vw;
+  max-inline-size: 15vw;
+}
+.PageLayout .postStudent .post .type{
+  width: 10vw;
+  max-inline-size: 10vw;
+}
+.PageLayout .postStudent .post .desc{
+  width: 20vw;
+  max-inline-size: 18vw;
+}
+.PageLayout .postStudent .post .time{
+  width: 5vw;
+  max-inline-size: 5vw;
+  margin: 0;
+}
+.PageLayout .postStudent .post .email{
+  margin-top: -30px;
+  margin-left: 10vw;
+  border-radius: 50%;
+  padding: 10px;
+  color: lightgoldenrodyellow;
+  background-color: gold;
+  border-color: lightskyblue;
+}
+
+.PageLayout .postStudent .post .check{
+  margin-top: -30px;
+  margin-left: 1vw;
+  border-radius: 50%;
+  padding: 10px;
+  color: honeydew;
+  background-color: mediumseagreen;
+  border-color: lightskyblue;
+}
+
+.PageLayout .postStudent .post .close{
+  margin-top: -30px;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  border-radius: 50%;
+  padding: 10px;
+  color: honeydew;
+  background-color: indianred;
+  border-color: lightskyblue;
+}
+
+.email:hover{
+  cursor: pointer;
+}
+
+.check:hover{
+  cursor: pointer;
 }
 
 .PageLayout .pacman {
-  position: fixed;
-  top: 50%;
+  position: relative;
   left: 50%;
+  width: 150px;
   transform: translate(-50%, -50%);
   opacity: 50%;
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
-  cursor: pointer;
+  margin-top: 50px;
 }
 
 .PageLayout .pacman:hover {
   opacity: 100%;
+  cursor: pointer;
 }
 
 .Welcome {
@@ -190,7 +336,7 @@ span {
 
 .Profile .foot {
   display: block;
-  padding-top: 120%;
+  margin-top: 120%;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -201,3 +347,86 @@ span {
   cursor: pointer;
 }
 
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-inner {
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 475px;
+  border-radius: 25px;
+  background-color: white;
+}
+
+.popup-inner .close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.waitlist {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.waitlist #inputCreateLogin {
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+.waitlist #inputCreatePosts {
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-bottom: 25px;
+  font-size: 20px;
+}
+
+.waitlist .timer {
+  display: inline-flex;
+  height: 60px;
+}
+
+.waitlist .timer #inputCreateLogin {
+  height: 40px;
+  width: 200px;
+  margin: 10px;
+}
+
+.waitlist button {
+  margin-top: 15px;
+  height: 40px;
+  margin-bottom: 25px;
+  border: none;
+  background-color: deepskyblue;
+  border-radius: 5px;
+  color: white;
+  font-size: 120%;
+}
+
+.waitlist button:hover {
+  cursor: pointer;
+  background-color: dodgerblue;
+}

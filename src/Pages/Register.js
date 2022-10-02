@@ -28,7 +28,7 @@ function Register() {
     }),
 
     onSubmit: (data) => {
-      axios.post("http://localhost:3001/users", data).then(()=>{
+      axios.post("https://basement-waitlist.herokuapp.com/users", data).then(()=>{
         console.log("Registration Successful");
       });
     },

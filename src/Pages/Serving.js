@@ -10,7 +10,7 @@ function Serving() {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-        axios.get("http://localhost:3001/posts", {
+        axios.get("https://basement-waitlist.herokuapp.com/posts", {
             headers: {
                 accessToken: sessionStorage.getItem("accessToken"),
             }

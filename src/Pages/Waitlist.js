@@ -52,7 +52,7 @@ function Waitlist() {
     }
 
     useEffect(() => {
-        axios.get("http://localhost:3001/posts", {
+        axios.get("https://basement-waitlist.herokuapp.com/posts", {
             headers: {
                 accessToken: sessionStorage.getItem("accessToken"),
             }
@@ -81,7 +81,7 @@ function Waitlist() {
         }),
 
         onSubmit: (data) => {
-            axios.post("http://localhost:3001/posts", data).then((response) => {
+            axios.post("https://basement-waitlist.herokuapp.com/posts", data).then((response) => {
             
         })},
 
@@ -92,7 +92,7 @@ function Waitlist() {
     const deleteStudent = (id) => {
         let text = "Are you sure you want to delete this Student?";
         if (window.confirm(text)) {
-            axios.delete(`http://localhost:3001/posts/${id}`, {
+            axios.delete(`https://basement-waitlist.herokuapp.com/posts/${id}`, {
                 headers: {
                     accessToken: localStorage.getItem("accessToken"),
                 }

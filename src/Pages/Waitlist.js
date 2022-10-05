@@ -22,8 +22,6 @@ function Waitlist() {
 
     const [count, setCount] = useState(0);
 
-    const [currentTime, setTime] = useState("");
-
     //var hoursMinSecs = {hours: 0, minutes: 0, seconds: 0};
 
     function refreshPage() {
@@ -125,12 +123,12 @@ function Waitlist() {
                     {listOfPosts.map((value) => {
                         return (
                             <ul className="post">
-                                <li className="id">{currentTime}</li>
+                                <li className="id"></li>
                                 <li className="name">{value.name}</li>
                                 <li className="type">{value.type}</li>
                                 <li className="desc">{value.email}</li>
                                 <li className="time">{value.description}</li>
-                                <li><button className="clock" title="Set Current Time" onClick={() => setTime(getTime)}><AccessTimeIcon/></button></li>
+                                <li><button className="clock" title="Set Current Time" onClick={() => confirmStudent()}><AccessTimeIcon/></button></li>
                                 <li><button className="email" title="Email" onClick={() => sendEmail(value.name, value.email)}><MailOutlineIcon /></button></li>
                                 <li><button className="check" title="Confirm" onClick={() => confirmStudent()}><CheckIcon /></button></li>
                                 <li><button className="close" title="Close" onClick={() => {deleteStudent(value.id)}}><CloseIcon /></button></li>

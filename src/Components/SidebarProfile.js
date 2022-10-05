@@ -4,7 +4,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 export const SidebarProfile = [
     {
         pic: <AccountCircleIcon />,
-        name: "Username",
+        name: "The Basement",
         link: "/profile"
     }
 ]

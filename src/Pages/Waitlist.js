@@ -12,6 +12,7 @@ import Wait from '../Components/pictures/pac-man.png';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 //<li className="time"><Timer hoursMinSecs={hoursMinSecs = {hours: parseInt(value.hour), minutes: parseInt(value.minute), seconds: 0}}/></li>
 //<li>{value.createdAt}</li>
 function Waitlist() {
@@ -21,17 +22,22 @@ function Waitlist() {
 
     const [count, setCount] = useState(0);
 
+    const [currentTime, setTime] = useState("");
+
     //var hoursMinSecs = {hours: 0, minutes: 0, seconds: 0};
 
     function refreshPage() {
         window.location.reload(false);
     }
 
-    function getNewTime(now ,mins, hrs) {
-        let time = now.toISOString().split('T','Z')[1]
-        let hour = time.split(':')[0]
-        let minute = time.split(':')[1]
-        return now;
+    function getTime() {
+        const date = new Date();
+        var hours = date.getHours(), min = date.getMinutes();
+        if(hours >= 13){
+            hours -= 12;
+        }
+        const time = hours + ':' + min;
+        return (time); 
     }
 
     function sendEmail(user, sendTo) {
@@ -108,7 +114,7 @@ function Waitlist() {
             <div className="PageLayout">
                 <div className="postBar">
                     <ul className="post">
-                        <li className="id"></li>
+                        <li className="id">TIME</li>
                         <li className="name">NAME</li>
                         <li className="type">TYPE</li>
                         <li className="desc">EMAIL</li>
@@ -119,11 +125,12 @@ function Waitlist() {
                     {listOfPosts.map((value) => {
                         return (
                             <ul className="post">
-                                <li className="id"></li>
+                                <li className="id">{currentTime}</li>
                                 <li className="name">{value.name}</li>
                                 <li className="type">{value.type}</li>
                                 <li className="desc">{value.email}</li>
                                 <li className="time">{value.description}</li>
+                                <li><button className="clock" title="Set Current Time" onClick={() => setTime(getTime)}><AccessTimeIcon/></button></li>
                                 <li><button className="email" title="Email" onClick={() => sendEmail(value.name, value.email)}><MailOutlineIcon /></button></li>
                                 <li><button className="check" title="Confirm" onClick={() => confirmStudent()}><CheckIcon /></button></li>
                                 <li><button className="close" title="Close" onClick={() => {deleteStudent(value.id)}}><CloseIcon /></button></li>
@@ -185,6 +192,7 @@ function Waitlist() {
                                 <option value="PC" label="PC"/>
                                 <option value="Xbox" label="Xbox"/>
                                 <option value="PS" label="Playstation"/>
+                                <option value="Switch" label="Switch"/>
                                 <option value="TABLE" label="Table Top"/>
                             </select>
                             {formik.touched.type && formik.errors.type ? (

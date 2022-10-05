@@ -1,8 +1,24 @@
-import React from 'react'
+import { React, useState , useEffect } from 'react'
+import axios from "axios";
 import Sidebar from '../Components/Sidebar';
 import Topbar from '../Components/Topbar';
 
 function Directory() {
+
+    const [listOfPosts, setListOfPosts] = useState([]);
+
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        axios.get("https://basement-waitlist.herokuapp.com/posts", {
+            headers: {
+                accessToken: sessionStorage.getItem("accessToken"),
+            }
+        }).then((response) => {
+            setListOfPosts(response.data);
+        })
+    }, [count]);
+    
     return (
         <div className="App">
             <Sidebar />

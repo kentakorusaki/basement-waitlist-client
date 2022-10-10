@@ -22,20 +22,32 @@ function Waitlist() {
 
     const [count, setCount] = useState(0);
 
+    const date = new Date();
+    var hours = date.getHours(), min = date.getMinutes();
+    
     //var hoursMinSecs = {hours: 0, minutes: 0, seconds: 0};
 
     function refreshPage() {
         window.location.reload(false);
     }
 
-    function getTime() {
-        const date = new Date();
-        var hours = date.getHours(), min = date.getMinutes();
+    function handleTime(key) {
+        window.localStorage.setItem(key, getTime(hours, min));
+        refreshPage();
+    }
+    function showTime(key) {
+        return window.localStorage.getItem(key);
+    }
+    function handleRemove(key) {
+        window.localStorage.removeItem(key);
+    }
+
+    function getTime(hours, min) {
         if(hours >= 13){
             hours -= 12;
         }
         const time = hours + ':' + min;
-        return (time); 
+        return (time);
     }
 
     function sendEmail(user, sendTo) {
@@ -123,15 +135,15 @@ function Waitlist() {
                     {listOfPosts.map((value) => {
                         return (
                             <ul className="post">
-                                <li className="id"></li>
+                                <li className="id">{showTime(value.id)}</li>
                                 <li className="name">{value.name}</li>
                                 <li className="type">{value.type}</li>
                                 <li className="desc">{value.email}</li>
                                 <li className="time">{value.description}</li>
-                                <li><button className="clock" title="Set Current Time" onClick={() => confirmStudent()}><AccessTimeIcon/></button></li>
+                                <li><button className="clock" title="Set Current Time" onClick={() => handleTime(value.id)}><AccessTimeIcon/></button></li>
                                 <li><button className="email" title="Email" onClick={() => sendEmail(value.name, value.email)}><MailOutlineIcon /></button></li>
                                 <li><button className="check" title="Confirm" onClick={() => confirmStudent()}><CheckIcon /></button></li>
-                                <li><button className="close" title="Close" onClick={() => {deleteStudent(value.id)}}><CloseIcon /></button></li>
+                                <li><button className="close" title="Close" onClick={() => {deleteStudent(value.id); handleRemove(value.id)}}><CloseIcon /></button></li>
                             </ul>
                         );
                     })}

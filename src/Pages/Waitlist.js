@@ -15,6 +15,67 @@ import CloseIcon from '@mui/icons-material/Close';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 //<li className="time"><Timer hoursMinSecs={hoursMinSecs = {hours: parseInt(value.hour), minutes: parseInt(value.minute), seconds: 0}}/></li>
 //<li>{value.createdAt}</li>
+
+/* Timer for form
+<label>(Not Required) Set Time: </label>
+<div className="timer">
+    <select
+        id="inputCreateLogin"
+        name="hour"
+        placeholder=""
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.hour}
+        style={{ display: 'block' }}
+    >
+        <option value="" label="Select hour(s)"/>
+        <option value="0" label="0"/>
+        <option value="1" label="1 hour"/>
+        <option value="2" label="2 hours"/>
+        <option value="3" label="3 hours"/>
+    </select>
+    {formik.touched.hour && formik.errors.hour ? (
+        <div style={{ color: "red" }}>{formik.errors.hour}</div>
+    ) : null}
+    <select
+        id="inputCreateLogin"
+        name="minute"
+        placeholder=""
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.minute}
+        style={{ display: 'block' }}
+    >
+        <option value="" label="Select minute(s)"/>
+        <option value="0" label="0"/>
+        <option value="5" label="5 minutes"/>
+        <option value="10" label="10 minutes"/>
+        <option value="15" label="15 minutes"/>
+        <option value="20" label="20 minutes"/>
+        <option value="25" label="25 minutes"/>
+        <option value="30" label="30 minutes"/>
+        <option value="35" label="35 minutes"/>
+        <option value="40" label="40 minutes"/>
+        <option value="45" label="45 minutes"/>
+        <option value="50" label="50 minutes"/>
+        <option value="55" label="55 minutes"/>
+    </select>
+    {formik.touched.minute && formik.errors.minute ? (
+        <div style={{ color: "red" }}>{formik.errors.minute}</div>
+    ) : null}
+</div>
+------ App.css ------
+.waitlist .timer {
+  display: inline-flex;
+  height: 60px;
+}
+
+.waitlist .timer #inputCreateLogin {
+  height: 40px;
+  width: 200px;
+  margin: 10px;
+}
+*/
 function Waitlist() {
     const [buttonPopup, setButtonPopup] = useState(false);
 
@@ -42,11 +103,17 @@ function Waitlist() {
         window.localStorage.removeItem(key);
     }
 
-    function getTime(hours, min) {
-        if(hours >= 13){
-            hours -= 12;
+    function getTime(hour, min) {
+        if(hour >= 13){
+            hour -= 12;
         }
-        const time = hours + ':' + min;
+        let minutes = min.toString();
+        let hours = hour.toString();
+        if(minutes === "0")
+        {
+            minutes = "00";
+        }
+        const time = hours + ':' + minutes;
         return (time);
     }
 
@@ -208,53 +275,6 @@ function Waitlist() {
                             {formik.touched.type && formik.errors.type ? (
                                 <div style={{ color: "red" }}>{formik.errors.type}</div>
                             ) : null}
-                            <label>(Not Required) Set Time: </label>
-                            <div className="timer">
-                                <select
-                                    id="inputCreateLogin"
-                                    name="hour"
-                                    placeholder=""
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    value={formik.values.hour}
-                                    style={{ display: 'block' }}
-                                >
-                                    <option value="" label="Select hour(s)"/>
-                                    <option value="0" label="0"/>
-                                    <option value="1" label="1 hour"/>
-                                    <option value="2" label="2 hours"/>
-                                    <option value="3" label="3 hours"/>
-                                </select>
-                                {formik.touched.hour && formik.errors.hour ? (
-                                    <div style={{ color: "red" }}>{formik.errors.hour}</div>
-                                ) : null}
-                                <select
-                                    id="inputCreateLogin"
-                                    name="minute"
-                                    placeholder=""
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    value={formik.values.minute}
-                                    style={{ display: 'block' }}
-                                >
-                                    <option value="" label="Select minute(s)"/>
-                                    <option value="0" label="0"/>
-                                    <option value="5" label="5 minutes"/>
-                                    <option value="10" label="10 minutes"/>
-                                    <option value="15" label="15 minutes"/>
-                                    <option value="20" label="20 minutes"/>
-                                    <option value="25" label="25 minutes"/>
-                                    <option value="30" label="30 minutes"/>
-                                    <option value="35" label="35 minutes"/>
-                                    <option value="40" label="40 minutes"/>
-                                    <option value="45" label="45 minutes"/>
-                                    <option value="50" label="50 minutes"/>
-                                    <option value="55" label="55 minutes"/>
-                                </select>
-                                {formik.touched.minute && formik.errors.minute ? (
-                                    <div style={{ color: "red" }}>{formik.errors.minute}</div>
-                                ) : null}
-                            </div>
                             <label>notes: </label>
                             <input
                                 autoComplete='off'

@@ -416,17 +416,6 @@ span {
   font-size: 20px;
 }
 
-.waitlist .timer {
-  display: inline-flex;
-  height: 60px;
-}
-
-.waitlist .timer #inputCreateLogin {
-  height: 40px;
-  width: 200px;
-  margin: 10px;
-}
-
 .waitlist button {
   margin-top: 15px;
   height: 40px;
